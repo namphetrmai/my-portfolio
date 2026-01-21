@@ -1,1 +1,591 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namphetr Maitri | Digital Marketing & Brand Strategy</title>
+    
+    <!-- Google Fonts: Inter (Apple-like) & Sarabun -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        page: '#FBFBFD',     // Apple Off-White Background
+                        surface: '#FFFFFF',   // Card Background
+                        primary: '#1D1D1F',   // Apple Black (Text)
+                        secondary: '#86868B', // Apple Grey (Subtext)
+                        accent: '#0071E3',    // Apple Blue (Interactive)
+                        darkbtn: '#000000',   // Solid Black Button
+                        lightgray: '#F5F5F7', // Section Background
+                        border: '#E5E5E5'     // Subtle Border
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', '"Sarabun"', 'sans-serif'], // Primary Font Stack
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px rgba(0, 0, 0, 0.04)',
+                        'hover': '0 10px 40px rgba(0, 0, 0, 0.08)',
+                    },
+                    borderRadius: {
+                        'xl': '12px',
+                        '2xl': '20px',
+                        '3xl': '24px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Sarabun', sans-serif; color: #1D1D1F; background-color: #FBFBFD; overflow-x: hidden; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Inter', 'Sarabun', sans-serif; letter-spacing: -0.02em; }
+        
+        .metric-symbol { position: relative; top: -0.35em; font-size: 0.5em; margin-left: 2px; color: #86868B; }
+        html { scroll-behavior: smooth; }
+        
+        .card-hover { transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); }
+        
+        .typing-indicator span { display: inline-block; width: 6px; height: 6px; background-color: #86868B; border-radius: 50%; animation: typing 1.4s infinite ease-in-out both; margin: 0 2px; }
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+        
+        .ai-response ul { list-style-type: disc; margin-left: 1.5em; margin-bottom: 1em; }
+        .ai-response ol { list-style-type: decimal; margin-left: 1.5em; margin-bottom: 1em; }
+        .ai-response p { margin-bottom: 0.8em; }
+        .ai-response strong { color: #1D1D1F; font-weight: 600; }
+
+        #google_translate_element { position: absolute; top: 20px; right: 20px; z-index: 1000; }
+        .goog-te-gadget-simple {
+            background-color: rgba(255,255,255,0.8) !important;
+            border: 1px solid #E5E5E5 !important;
+            padding: 8px 12px !important;
+            border-radius: 99px !important;
+            color: #1D1D1F !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 13px !important;
+            backdrop-filter: blur(10px);
+        }
+        .goog-te-gadget-simple span { color: #1D1D1F !important; }
+        .goog-te-menu-value span:first-child { font-family: 'Inter', sans-serif; font-weight: 500; }
+    </style>
+</head>
+<body class="antialiased relative">
+
+    <div id="google_translate_element"></div>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center bg-page pt-20">
+        <div class="container mx-auto px-6 relative z-20 text-center max-w-4xl">
+            <span class="inline-block py-1 px-3 rounded-full bg-black text-white text-xs font-semibold tracking-wide uppercase mb-6">Portfolio 2024</span>
+            
+            <h1 class="font-heading text-6xl md:text-7xl lg:text-9xl font-black mb-6 leading-tight tracking-tighter text-primary">
+                NAMPHETR<br>MAITRI
+            </h1>
+            
+            <p class="text-xl md:text-3xl font-medium text-secondary mb-8 leading-relaxed max-w-2xl mx-auto">
+                เปลี่ยนทรัพย์สินที่มี <span class="text-primary">ให้เป็นรายได้ที่วัดผลได้จริง</span>
+            </p>
+            
+            <p class="font-heading text-lg md:text-xl text-primary font-medium mb-12 max-w-xl mx-auto border-l-2 border-black pl-6 text-left">
+                “ซ่อมรากฐาน ปรับปรุงของเดิม ขยายโอกาสใหม่”<br>
+                <span class="text-secondary text-base font-normal mt-2 block">การตลาดที่ฟังเสียงเจ้าของกิจการ เน้นผลลัพธ์ที่จับต้องได้</span>
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center mt-8">
+                <a href="#contact" class="px-8 py-4 bg-darkbtn text-white font-semibold rounded-full hover:bg-gray-800 transition duration-300 min-w-[200px] shadow-lg hover:shadow-xl">
+                    นัดปรึกษาเบื้องต้น
+                </a>
+                <a href="#case-studies" class="px-8 py-4 bg-white text-primary border border-border font-medium rounded-full hover:bg-gray-50 transition duration-300 min-w-[200px]">
+                    ดูผลงานจริง
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#F5F5F7] to-transparent -z-10"></div>
+    </header>
+
+    <!-- Metrics -->
+    <section class="py-24 bg-lightgray">
+        <div class="container mx-auto px-6">
+            <div class="bg-surface rounded-3xl p-12 shadow-soft max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center divide-y lg:divide-y-0 lg:divide-x divide-gray-100">
+                    <div class="p-4">
+                        <div class="font-heading text-6xl font-black text-primary mb-2 tracking-tighter">40<span class="metric-symbol">%</span></div>
+                        <h3 class="font-bold text-lg mb-1 text-primary">ยอดขายเพิ่มจริง</h3>
+                        <p class="text-secondary text-sm">ใน 3 เดือนแรก<br>(ธุรกิจร้านอาหาร)</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="font-heading text-6xl font-black text-primary mb-2 tracking-tighter">280<span class="metric-symbol">%</span></div>
+                        <h3 class="font-bold text-lg mb-1 text-primary">คนทักและสนใจเพิ่ม</h3>
+                        <p class="text-secondary text-sm">เป็นที่รู้จักมากขึ้น<br>(ธุรกิจท่องเที่ยว)</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="font-heading text-6xl font-black text-primary mb-2 tracking-tighter">35<span class="metric-symbol">%</span></div>
+                        <h3 class="font-bold text-lg mb-1 text-primary">ลูกค้าใหม่เข้าหา</h3>
+                        <p class="text-secondary text-sm">ขยายฐานลูกค้า<br>(ธุรกิจยานยนต์)</p>
+                    </div>
+                    <div class="p-4">
+                        <div class="font-heading text-6xl font-black text-primary mb-2 tracking-tighter">0.03<span class="metric-symbol">฿</span></div>
+                        <h3 class="font-bold text-lg mb-1 text-primary">ลดค่าโฆษณาเหลือ</h3>
+                        <p class="text-secondary text-sm">ต่อการมองเห็น 1 คน<br>(ประหยัดงบ)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Working Approach -->
+    <section class="py-24 bg-page">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-20">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-primary mb-4 tracking-tight">แนวทางการทำงาน</h2>
+                <p class="text-lg text-secondary max-w-2xl mx-auto">เริ่มจาก "ฟัง" และ "เข้าใจ" โดยไม่ตัดสิน เพื่อหาทางออกที่คุ้มค่าและเจ็บตัวน้อยที่สุด</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-surface p-8 rounded-3xl shadow-soft card-hover border border-border">
+                    <div class="w-16 h-16 bg-black text-white rounded-2xl flex items-center justify-center mb-6"><i data-lucide="ear" class="w-8 h-8"></i></div>
+                    <h4 class="font-bold text-xl mb-3 text-primary">1. ฟังและวิเคราะห์</h4>
+                    <p class="text-secondary text-sm leading-relaxed">เริ่มจากฟังเสียงเจ้าของกิจการ สำรวจสิ่งที่คุณ "มีอยู่แล้ว" ก่อนจะเริ่มจ่ายเงินสร้างสิ่งใหม่</p>
+                </div>
+                <div class="bg-surface p-8 rounded-3xl shadow-soft card-hover border border-border">
+                    <div class="w-16 h-16 bg-black text-white rounded-2xl flex items-center justify-center mb-6"><i data-lucide="wrench" class="w-8 h-8"></i></div>
+                    <h4 class="font-bold text-xl mb-3 text-primary">2. ซ่อมและปรับปรุง</h4>
+                    <p class="text-secondary text-sm leading-relaxed">อุดรอยรั่วของระบบการขายเดิม ปรับปรุงช่องทางรายได้ที่มีให้ทำงานเต็มประสิทธิภาพ</p>
+                </div>
+                <div class="bg-surface p-8 rounded-3xl shadow-soft card-hover border border-border">
+                    <div class="w-16 h-16 bg-black text-white rounded-2xl flex items-center justify-center mb-6"><i data-lucide="rocket" class="w-8 h-8"></i></div>
+                    <h4 class="font-bold text-xl mb-3 text-primary">3. ขยายช่องทาง</h4>
+                    <p class="text-secondary text-sm leading-relaxed">เมื่อรากฐานแข็งแรง จึงเริ่มขยายสู่โอกาสใหม่ๆ เพื่อเพิ่มยอดขายแบบก้าวกระโดด</p>
+                </div>
+                <div class="bg-surface p-8 rounded-3xl shadow-soft card-hover border border-border">
+                    <div class="w-16 h-16 bg-black text-white rounded-2xl flex items-center justify-center mb-6"><i data-lucide="bar-chart-2" class="w-8 h-8"></i></div>
+                    <h4 class="font-bold text-xl mb-3 text-primary">4. ผลลัพธ์ที่จับต้องได้</h4>
+                    <p class="text-secondary text-sm leading-relaxed">โฟกัสที่ "กำไร" และ "ความคุ้มค่า (ROI)" ตัดสิ่งฟุ่มเฟือย เหลือไว้แต่สิ่งที่ทำเงินจริง</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="case-studies" class="py-24 bg-surface">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div class="max-w-xl">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-primary mb-4 tracking-tight">Selected Works</h2>
+                    <p class="text-secondary text-lg">กลยุทธ์จริง กับผลลัพธ์ที่พิสูจน์ได้</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+                <div class="group cursor-pointer">
+                    <div class="h-[400px] bg-gray-100 rounded-3xl overflow-hidden mb-6 relative shadow-sm hover:shadow-xl transition-all duration-500">
+                         <img src="https://image.makewebeasy.net/makeweb/m_1920x0/1hnOhg7ax/Pic/New_Project.png?v=202305101549" alt="Tublee Prakaichan" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                         <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide">F&B</div>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-2xl font-bold mb-2 text-primary group-hover:text-gray-600 transition">Tublee "Prakaichan"</h3>
+                        <p class="text-secondary mb-3">แบรนด์ใหม่ ในตลาดที่มีการแข่งขันสูง</p>
+                        <div class="flex items-center gap-3 text-sm font-medium">
+                            <span class="text-primary bg-gray-100 px-3 py-1 rounded-full">ยอดขาย +40%</span>
+                            <span class="text-secondary">33K Engagement</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://akecamping.wixstudio.com/akecampingpakchong" target="_blank" class="group cursor-pointer">
+                    <div class="h-[400px] bg-gray-100 rounded-3xl overflow-hidden mb-6 relative shadow-sm hover:shadow-xl transition-all duration-500">
+                         <img src="https://th.bing.com/th/id/R.9030a500432a855525370cf5625d2ab7?rik=6QxJ0tDVkKHv8w&pid=ImgRaw&r=0" alt="AKE Camping" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                         <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide">Tourism</div>
+                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 bg-black/10 backdrop-blur-[2px]">
+                             <span class="bg-white text-black px-6 py-3 rounded-full text-sm font-bold shadow-lg">เข้าชมเว็บไซต์</span>
+                         </div>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-2xl font-bold mb-2 text-primary group-hover:text-gray-600 transition">AKE Camping</h3>
+                        <p class="text-secondary mb-3">เปลี่ยนที่ดินธรรมดา ให้เป็นแหล่งท่องเที่ยว</p>
+                        <div class="flex items-center gap-3 text-sm font-medium">
+                            <span class="text-primary bg-gray-100 px-3 py-1 rounded-full">จองพัก +35%</span>
+                            <span class="text-secondary">+280% Engagement</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="group cursor-pointer">
+                    <div class="h-[400px] bg-gray-100 rounded-3xl overflow-hidden mb-6 relative shadow-sm hover:shadow-xl transition-all duration-500">
+                         <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80" alt="United Tire" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                         <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide">Automotive</div>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-2xl font-bold mb-2 text-primary group-hover:text-gray-600 transition">United Tire</h3>
+                        <p class="text-secondary mb-3">สร้างภาพลักษณ์แบรนด์หรู (Luxury Brand)</p>
+                        <div class="flex items-center gap-3 text-sm font-medium">
+                            <span class="text-primary bg-gray-100 px-3 py-1 rounded-full">Traffic +35%</span>
+                            <span class="text-secondary">New Customers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-gray-100">
+                <div class="bg-page p-8 rounded-3xl flex flex-col justify-center">
+                    <h3 class="font-heading text-2xl font-bold mb-6 text-primary">Web Development & Consulting</h3>
+                    <div class="space-y-4">
+                        <a href="https://naeki.co/" target="_blank" class="flex items-center justify-between bg-surface p-5 rounded-2xl shadow-sm hover:shadow-md transition">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-gray-100 rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&q=60" class="w-full h-full object-cover"></div>
+                                <div>
+                                    <h4 class="font-bold text-primary">Naeki Sushi</h4>
+                                    <p class="text-xs text-secondary">ที่ปรึกษาการตลาด (Delivery & Takeaway)</p>
+                                </div>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-400"></i>
+                        </a>
+                        <a href="http://belivegoodlife.com/" target="_blank" class="flex items-center justify-between bg-surface p-5 rounded-2xl shadow-sm hover:shadow-md transition">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-gray-100 rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&q=60" class="w-full h-full object-cover"></div>
+                                <div>
+                                    <h4 class="font-bold text-primary">Belive Good Life</h4>
+                                    <p class="text-xs text-secondary">Web, Ads, Research (อาหารเสริม)</p>
+                                </div>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-400"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-page p-8 rounded-3xl">
+                    <h3 class="font-heading text-2xl font-bold mb-6 text-primary">Social Campaigns</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://www.facebook.com/share/1GF7cEaJpy/" target="_blank" class="px-4 py-3 bg-surface border border-gray-200 rounded-full text-sm font-medium hover:border-black transition flex items-center gap-2"><i data-lucide="facebook" class="w-4 h-4 text-blue-600"></i> Campaign #1</a>
+                        <a href="https://www.facebook.com/share/17orPgszWS/" target="_blank" class="px-4 py-3 bg-surface border border-gray-200 rounded-full text-sm font-medium hover:border-black transition flex items-center gap-2"><i data-lucide="facebook" class="w-4 h-4 text-blue-600"></i> Campaign #2</a>
+                        <a href="https://www.facebook.com/share/1DzZdoXJte/" target="_blank" class="px-4 py-3 bg-surface border border-gray-200 rounded-full text-sm font-medium hover:border-black transition flex items-center gap-2"><i data-lucide="facebook" class="w-4 h-4 text-blue-600"></i> Campaign #3</a>
+                        <a href="https://www.facebook.com/share/1B1w9CkHGL/" target="_blank" class="px-4 py-3 bg-surface border border-gray-200 rounded-full text-sm font-medium hover:border-black transition flex items-center gap-2"><i data-lucide="facebook" class="w-4 h-4 text-blue-600"></i> Campaign #4</a>
+                        <a href="https://www.facebook.com/share/1A1qxSzx3n/" target="_blank" class="px-4 py-3 bg-surface border border-gray-200 rounded-full text-sm font-medium hover:border-black transition flex items-center gap-2"><i data-lucide="facebook" class="w-4 h-4 text-blue-600"></i> Campaign #5</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 bg-page">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="bg-surface rounded-3xl p-8 md:p-12 shadow-soft flex flex-col md:flex-row items-center gap-12 border border-border">
+                <div class="w-full md:w-1/2">
+                    <div class="relative w-full h-[500px] bg-gray-100 rounded-2xl overflow-hidden">
+                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&sat=-100" alt="Data and Strategy" class="w-full h-full object-cover grayscale opacity-90 hover:scale-105 transition duration-700">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <span class="text-xs font-bold tracking-widest uppercase text-secondary mb-4 block">เกี่ยวกับน้ำเพชร</span>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-6 leading-tight">ไม่ใช่แค่ "คนนอก"<br>แต่คือ "พาร์ตเนอร์"</h2>
+                    <div class="space-y-6 text-secondary leading-relaxed">
+                        <p>การจะเข้าไปเป็นส่วนหนึ่งของธุรกิจคุณ น้ำต้องเริ่มจากการ <strong class="text-primary">"รับฟัง"</strong> อย่างเข้าใจโดยไม่ตัดสิน จากนั้นจึงนำข้อมูลมาสังเคราะห์ พิจารณาเหตุผล และเทียบกับเทรนด์ตลาด เพื่อหาคำตอบว่าทำไมธุรกิจถึงสะดุด</p>
+                        <p>เราเน้นแนวทางแก้ไขที่คุณ <strong class="text-primary">"เจ็บตัวน้อยที่สุด"</strong> เริ่มจากต่อยอดสิ่งที่มี ซ่อมแซมจุดที่รั่วไหล ก่อนจะคิดเรื่องการลงทุนเพิ่ม</p>
+                        <p>ที่นี่ไม่มีการบวกราคาค่าเครื่องมือหรือค่าโฆษณาเพิ่ม เราได้รับค่าที่ปรึกษาที่เพียงพอแล้ว หน้าที่ของน้ำคือยืนอยู่ฝั่งเดียวกับเจ้าของธุรกิจ พร้อมแสดงราคาต้นทุนจริง ไม่ว่าจะเป็นค่าอินฟลูเอนเซอร์, ค่าโฆษณา, หรือค่าติดตั้งเครื่องมือต่างๆ เจ้าของจ่ายตามจริงทั้งหมด หากมีรายละเอียดอื่นๆ จะแจ้งเป็นข้อๆ ให้ทราบก่อนเริ่มงานเสมอ เพื่อเป็น "สะพาน" เชื่อมคุณเข้ากับเครื่องมือทุ่นแรงที่ใช่</p>
+                    </div>
+                    <div class="mt-10 text-center md:text-left">
+                        <!-- Updated CV Download Link to the new Google Sites page -->
+                        <a href="https://sites.google.com/view/namscv/%E0%B8%AB%E0%B8%99%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B8%81" target="_blank" class="inline-flex items-center px-8 py-4 bg-darkbtn text-white font-bold rounded-full hover:bg-gray-800 transition duration-300">
+                            <i data-lucide="file-text" class="w-5 h-5 mr-2"></i> ดาวน์โหลด CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Playground -->
+    <section id="ai-consultant" class="py-24 bg-[#000000] text-white relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10 max-w-6xl">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center py-1 px-3 bg-white/10 rounded-full border border-white/10 mb-6 backdrop-blur-md">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-white mr-2"></i>
+                    <span class="text-xs font-semibold tracking-wider uppercase">Powered by Gemini AI</span>
+                </div>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4">AI & Strategy Playground</h2>
+                <p class="text-gray-400 text-lg">ทดลองใช้เครื่องมือ AI ที่น้ำใช้ผสมผสานกับความคิดสร้างสรรค์</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Strategy Bot -->
+                <div class="bg-[#1c1c1e] rounded-3xl overflow-hidden border border-white/10 flex flex-col h-full">
+                    <div class="p-5 border-b border-white/10 flex items-center justify-between">
+                        <span class="text-sm font-bold text-white">Strategy Bot</span>
+                        <div class="flex gap-1.5"><div class="w-3 h-3 rounded-full bg-red-500"></div><div class="w-3 h-3 rounded-full bg-yellow-500"></div><div class="w-3 h-3 rounded-full bg-green-500"></div></div>
+                    </div>
+                    <div id="ai-output-container" class="flex-grow min-h-[300px] p-6 overflow-y-auto space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center flex-shrink-0"><i data-lucide="bot" class="w-5 h-5"></i></div>
+                            <div class="bg-[#2c2c2e] rounded-2xl rounded-tl-none p-4 text-sm text-gray-200 max-w-[85%]">สวัสดีครับ! ถามคำถามเกี่ยวกับการตลาดดิจิทัลได้เลยครับ</div>
+                        </div>
+                        <div id="ai-response-text" class="text-gray-200 leading-relaxed ai-response text-sm space-y-4"></div>
+                    </div>
+                    <div class="p-5 bg-[#2c2c2e]">
+                        <div class="relative">
+                            <input type="text" id="user-prompt" class="w-full bg-[#1c1c1e] border-none rounded-full px-6 py-4 text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 transition pr-12" placeholder="ถามคำถาม...">
+                            <button onclick="askGemini()" id="ask-btn" class="absolute right-2 top-2 p-2 bg-white text-black rounded-full hover:bg-gray-200 transition"><i data-lucide="arrow-up" class="w-5 h-5"></i></button>
+                        </div>
+                        <div class="mt-4 flex gap-2 overflow-x-auto pb-2 text-xs no-scrollbar">
+                            <button onclick="fillPrompt('วางแผนการตลาดสำหรับแบรนด์สกินแคร์น้องใหม่')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition whitespace-nowrap border border-white/10">เปิดตัวสกินแคร์</button>
+                            <button onclick="fillPrompt('วิธีเพิ่มความคุ้มค่า (ROAS) ให้โฆษณา Facebook')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition whitespace-nowrap border border-white/10">ปรับแต่งโฆษณา</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column Stack -->
+                <div class="flex flex-col gap-6">
+                    <!-- Target Insight Hunter -->
+                    <div class="bg-gradient-to-r from-purple-900/20 to-[#1c1c1e] rounded-3xl overflow-hidden border border-purple-500/30 p-6 relative">
+                         <div class="absolute top-0 right-0 p-4 opacity-10"><i data-lucide="target" class="w-24 h-24 text-purple-500"></i></div>
+                         <div class="flex items-center justify-between mb-4 relative z-10">
+                            <div class="flex items-center gap-2"><i data-lucide="scan-face" class="w-5 h-5 text-purple-400"></i><span class="text-sm font-bold text-white">Target Insight Hunter (เจาะลึกกลุ่มเป้าหมาย)</span></div>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-4">ให้ AI ช่วยวิเคราะห์ว่า "ใคร" คือลูกค้าตัวจริง เพื่อการยิงแอดที่แม่นยำ</p>
+                        <div class="flex gap-2 mb-4 relative z-10">
+                            <input type="text" id="target-input" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2 text-white text-sm focus:outline-none focus:border-purple-500" placeholder="สินค้าของคุณ...">
+                            <button onclick="generateInsight()" id="target-btn" class="p-2 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition"><i data-lucide="search" class="w-5 h-5"></i></button>
+                        </div>
+                        <div id="target-output" class="hidden space-y-2 relative z-10 text-sm"></div>
+                    </div>
+
+                    <!-- Magic Copywriter -->
+                    <div class="bg-[#1c1c1e] rounded-3xl overflow-hidden border border-white/10 p-6 flex flex-col">
+                        <div class="flex items-center justify-between mb-4"><span class="text-sm font-bold text-white">✨ Magic Copywriter</span></div>
+                        <textarea id="copy-input" rows="2" class="w-full bg-[#2c2c2e] border-none rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 mb-4 text-sm resize-none" placeholder="เช่น ขายเมล็ดกาแฟออร์แกนิก..."></textarea>
+                        <div class="flex gap-2 mb-4 overflow-x-auto no-scrollbar">
+                            <button onclick="generateCopy('หรูหรา')" class="px-4 py-2 bg-white/10 hover:bg-white text-white hover:text-black rounded-full text-xs font-medium transition whitespace-nowrap">หรูหรา</button>
+                            <button onclick="generateCopy('เร่งด่วน')" class="px-4 py-2 bg-white/10 hover:bg-white text-white hover:text-black rounded-full text-xs font-medium transition whitespace-nowrap">โปรไฟไหม้</button>
+                            <button onclick="generateCopy('เป็นกันเอง')" class="px-4 py-2 bg-white/10 hover:bg-white text-white hover:text-black rounded-full text-xs font-medium transition whitespace-nowrap">เป็นกันเอง</button>
+                        </div>
+                        <div class="bg-[#000000] rounded-xl p-4 min-h-[60px] flex items-center justify-center text-center"><div id="copy-output" class="text-sm text-gray-400 italic">ผลลัพธ์จะปรากฏที่นี่...</div></div>
+                    </div>
+
+                    <!-- Instant Content Planner -->
+                    <div class="bg-gradient-to-br from-[#1c1c1e] to-[#2c2c2e] rounded-3xl overflow-hidden border border-white/10 p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-sm font-bold text-white">Instant Content Planner</span>
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <input type="text" id="planner-input" class="w-full bg-black/50 border-none rounded-full px-4 py-2 text-white text-sm placeholder-gray-500" placeholder="ธุรกิจของคุณ...">
+                            <button onclick="generatePlan()" id="plan-btn" class="p-2 bg-white text-black rounded-full hover:scale-105 transition"><i data-lucide="zap" class="w-4 h-4"></i></button>
+                        </div>
+                        <div id="planner-output" class="space-y-3">
+                            <!-- Results will appear here -->
+                        </div>
+                    </div>
+
+                    <!-- Ad Hook Generator -->
+                    <div class="bg-[#1c1c1e] rounded-3xl overflow-hidden border border-blue-500/30 p-6 relative">
+                         <div class="absolute top-0 right-0 p-4 opacity-10"><i data-lucide="magnet" class="w-24 h-24 text-blue-500"></i></div>
+                         <div class="flex items-center justify-between mb-4 relative z-10">
+                            <div class="flex items-center gap-2"><i data-lucide="mouse-pointer-click" class="w-5 h-5 text-blue-400"></i><span class="text-sm font-bold text-white">Ad Hook Generator (พาดหัวหยุดนิ้วโป้ง)</span></div>
+                        </div>
+                        <div class="flex gap-2 mb-4 relative z-10">
+                            <input type="text" id="hook-input" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2 text-white text-sm focus:outline-none focus:border-blue-500" placeholder="สินค้าของคุณ...">
+                            <button onclick="generateHooks()" id="hook-btn" class="p-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition"><i data-lucide="sparkles" class="w-5 h-5"></i></button>
+                        </div>
+                        <div id="hook-output" class="hidden space-y-2 relative z-10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-surface border-t border-border">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="font-heading text-4xl font-bold mb-12 text-primary">ร่วมงานกัน</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <a href="mailto:namphetr.mai@gmail.com" class="group flex flex-col items-center p-6 rounded-3xl hover:bg-gray-50 transition">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition"><i data-lucide="mail" class="w-6 h-6 text-primary"></i></div>
+                    <span class="text-sm text-secondary font-medium">อีเมล</span>
+                    <span class="text-primary font-bold mt-1">namphetr.mai@gmail.com</span>
+                </a>
+                <a href="tel:+66627892297" class="group flex flex-col items-center p-6 rounded-3xl hover:bg-gray-50 transition">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition"><i data-lucide="phone" class="w-6 h-6 text-primary"></i></div>
+                    <span class="text-sm text-secondary font-medium">โทรศัพท์</span>
+                    <span class="text-primary font-bold mt-1">+66 62 789 2297</span>
+                </a>
+                <div class="group flex flex-col items-center p-6 rounded-3xl hover:bg-gray-50 transition">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition"><i data-lucide="map-pin" class="w-6 h-6 text-primary"></i></div>
+                    <span class="text-sm text-secondary font-medium">สถานที่</span>
+                    <span class="text-primary font-bold mt-1">กรุงเทพมหานคร</span>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                <a href="mailto:namphetr.mai@gmail.com?subject=Inquiry" class="px-8 py-4 bg-darkbtn text-white font-bold rounded-full hover:bg-gray-800 transition shadow-lg w-full md:w-auto">จองคิวปรึกษาเบื้องต้น</a>
+                <a href="https://line.me/ti/p/kaXMNv-9FI" target="_blank" class="px-8 py-4 bg-[#06C755] text-white font-bold rounded-full hover:bg-[#05b64d] transition shadow-lg w-full md:w-auto flex items-center justify-center gap-2"><i data-lucide="message-circle" class="w-5 h-5"></i> ADD LINE: Nam2405</a>
+            </div>
+            <div class="mt-20 text-secondary text-sm">&copy; 2024 Namphetr Maitri. All Rights Reserved.</div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'th', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        lucide.createIcons();
+        const apiKey = ""; 
+
+        async function askGemini() {
+            const inputField = document.getElementById('user-prompt');
+            const prompt = inputField.value.trim();
+            const outputContainer = document.getElementById('ai-output-container');
+            const btn = document.getElementById('ask-btn');
+            if (!prompt) return;
+            const userBubble = document.createElement('div');
+            userBubble.className = "flex justify-end mb-4 animate-fade-in-up";
+            userBubble.innerHTML = `<div class="bg-blue-600 text-white rounded-2xl rounded-tr-none px-4 py-2 text-sm max-w-[85%]">${prompt}</div>`;
+            outputContainer.appendChild(userBubble);
+            inputField.value = '';
+            const loadingBubble = document.createElement('div');
+            loadingBubble.id = "loading-bubble";
+            loadingBubble.className = "flex items-start gap-4 mb-4";
+            loadingBubble.innerHTML = `<div class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center flex-shrink-0"><i data-lucide="bot" class="w-5 h-5"></i></div><div class="bg-[#2c2c2e] rounded-2xl rounded-tl-none p-4 text-sm text-gray-200"><div class="typing-indicator"><span></span><span></span><span></span></div></div>`;
+            outputContainer.appendChild(loadingBubble);
+            lucide.createIcons();
+            outputContainer.scrollTop = outputContainer.scrollHeight;
+            btn.disabled = true;
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: prompt }] }],
+                        systemInstruction: { parts: [{ text: `You are Namphetr's AI Assistant. Help with digital marketing in Thai.` }] }
+                    })
+                });
+                const data = await response.json();
+                const aiText = data.candidates[0].content.parts[0].text;
+                loadingBubble.remove();
+                const aiBubble = document.createElement('div');
+                aiBubble.className = "flex items-start gap-4 mb-4 animate-fade-in-up";
+                aiBubble.innerHTML = `<div class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center flex-shrink-0"><i data-lucide="bot" class="w-5 h-5"></i></div><div class="bg-[#2c2c2e] rounded-2xl rounded-tl-none p-4 text-sm text-gray-200 ai-response">${marked.parse(aiText)}</div>`;
+                outputContainer.appendChild(aiBubble);
+                lucide.createIcons();
+                outputContainer.scrollTop = outputContainer.scrollHeight;
+            } catch (error) { console.error(error); }
+            finally { btn.disabled = false; }
+        }
+
+        async function generateCopy(tone) {
+            const inputField = document.getElementById('copy-input');
+            const outputBox = document.getElementById('copy-output');
+            const product = inputField.value.trim();
+            if (!product) return;
+            outputBox.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: `Product: ${product}, Tone: ${tone}` }] }],
+                        systemInstruction: { parts: [{ text: `Write short, punchy Thai ad copy (under 30 words).` }] }
+                    })
+                });
+                const data = await response.json();
+                outputBox.innerHTML = `"${data.candidates[0].content.parts[0].text}"`;
+            } catch (error) { outputBox.innerHTML = "Error"; }
+        }
+
+        async function generatePlan() {
+            const inputField = document.getElementById('planner-input');
+            const outputBox = document.getElementById('planner-output');
+            const niche = inputField.value.trim();
+            if (!niche) return;
+            outputBox.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: niche }] }],
+                        systemInstruction: { parts: [{ text: `Generate a 3-post Thai content plan in JSON format: {educational: {title, desc}, entertaining: {title, desc}, promotional: {title, desc}}` }] },
+                        generationConfig: { responseMimeType: "application/json" }
+                    })
+                });
+                const data = await response.json();
+                const plan = JSON.parse(data.candidates[0].content.parts[0].text);
+                outputBox.innerHTML = `<div class="bg-white/10 p-2 rounded text-xs"><strong>ให้ความรู้:</strong> ${plan.educational.title}</div><div class="bg-white/10 p-2 rounded text-xs"><strong>บันเทิง:</strong> ${plan.entertaining.title}</div><div class="bg-white/10 p-2 rounded text-xs"><strong>ขายของ:</strong> ${plan.promotional.title}</div>`;
+            } catch (error) { outputBox.innerHTML = "Error"; }
+        }
+
+        async function generateInsight() {
+            const inputField = document.getElementById('target-input');
+            const outputBox = document.getElementById('target-output');
+            const product = inputField.value.trim();
+            if (!product) return;
+            outputBox.classList.remove('hidden');
+            outputBox.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: product }] }],
+                        systemInstruction: { parts: [{ text: `Analyze Thai target audience in bullet points.` }] }
+                    })
+                });
+                const data = await response.json();
+                outputBox.innerHTML = marked.parse(data.candidates[0].content.parts[0].text);
+            } catch (error) { outputBox.innerHTML = "Error"; }
+        }
+
+        async function generateHooks() {
+            const inputField = document.getElementById('hook-input');
+            const outputBox = document.getElementById('hook-output');
+            const product = inputField.value.trim();
+            if (!product) return;
+            outputBox.classList.remove('hidden');
+            outputBox.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: product }] }],
+                        systemInstruction: { parts: [{ text: `Generate 3 Thai scroll-stopping ad hooks.` }] }
+                    })
+                });
+                const data = await response.json();
+                outputBox.innerHTML = marked.parse(data.candidates[0].content.parts[0].text);
+            } catch (error) { outputBox.innerHTML = "Error"; }
+        }
+
+        function fillPrompt(text) { document.getElementById('user-prompt').value = text; }
+        
+        // Use a defensive check for addEventListener to avoid null reference errors
+        window.onload = function() {
+            const elementsToBind = [
+                { id: 'user-prompt', func: askGemini },
+                { id: 'planner-input', func: generatePlan },
+                { id: 'target-input', func: generateInsight },
+                { id: 'hook-input', func: generateHooks }
+            ];
+
+            elementsToBind.forEach(item => {
+                const el = document.getElementById(item.id);
+                if (el) {
+                    el.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') item.func();
+                    });
+                }
+            });
+        };
+    </script>
+</body>
+</html>
